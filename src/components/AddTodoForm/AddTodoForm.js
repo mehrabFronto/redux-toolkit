@@ -1,8 +1,11 @@
+import { useDispatch } from "react-redux";
 import styles from "./addTodoForm.module.css";
 import { useState, useEffect, useRef } from "react";
+import { addTodo } from "../../features/todos/todosSlice";
 
 const AddTodoForm = () => {
    const [todoTitle, setTodoTitle] = useState("");
+   const dispatch = useDispatch();
 
    useEffect(() => {
       inpuRef.current.focus();
@@ -12,6 +15,7 @@ const AddTodoForm = () => {
 
    const submitHandler = (e) => {
       e.preventDefault();
+      dispatch(addTodo({ title: todoTitle }));
       setTodoTitle("");
    };
 

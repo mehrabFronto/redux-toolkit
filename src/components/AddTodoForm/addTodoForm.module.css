@@ -1,0 +1,53 @@
+.form__label{
+    font-size: 2.4rem;
+    display: block;
+    margin-bottom: 10px;
+    color: #11123b;
+}
+
+.from__warpper{
+    display: flex;
+    width: 50rem;
+    position: relative;
+    background-color: #cac2b1;
+    border-radius: 5px;
+}
+
+.form__input{
+    outline: none;
+    border:none;
+    background-color: #cac2b1;
+    border-radius: 5px;
+    padding: 15px;
+    width: 55rem;
+    transition: all 0.3s ease-out;
+    outline: 1px solid #cac2b1;
+    color: #11123b;
+}
+
+.form__input::placeholder{
+    color: #11123b;
+    opacity: 0.8;
+}
+
+.form__input:focus{
+    outline: 1px solid #11123b;
+}
+
+.form__button{
+    position: absolute;
+    right: 0 ;
+    outline: none;
+    border:none;
+    background-color: #11123b;
+    color: #cac2b1;
+    border-radius: 5px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    outline: 1px solid #11123b;
+}
+
+.form__button:hover{
+    padding: 15px 30px;
+}

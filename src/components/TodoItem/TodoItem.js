@@ -1,9 +1,11 @@
 import styles from "./todoItem.module.css";
 import { BiCheckCircle } from "react-icons/bi";
-import { BiEdit } from "react-icons/bi";
 import { BiTrash } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { toggleCompleteTodo } from "../../features/todos/todosSlice";
 
 const TodoItem = ({ todo }) => {
+   const dispatch = useDispatch();
    return (
       <div
          className={`${styles.todo} ${
@@ -28,7 +30,9 @@ const TodoItem = ({ todo }) => {
             </button>
 
             {/* complete butoon */}
-            <button className={styles.btn}>
+            <button
+               className={styles.btn}
+               onClick={() => dispatch(toggleCompleteTodo({ id: todo.id }))}>
                <BiCheckCircle />
             </button>
          </div>

@@ -3,8 +3,8 @@ import { BiCheckCircle } from "react-icons/bi";
 import { BiTrash } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import {
-   deleteTodo,
-   toggleCompleteTodo,
+   deleteAsyncTodo,
+   toggleCompleteAsyncTodo,
 } from "../../features/todos/todosSlice";
 
 const TodoItem = ({ todo }) => {
@@ -30,14 +30,14 @@ const TodoItem = ({ todo }) => {
             {/* remove butoon */}
             <button
                className={styles.btn}
-               onClick={() => dispatch(deleteTodo({ id: todo.id }))}>
+               onClick={() => dispatch(deleteAsyncTodo({ id: todo.id }))}>
                <BiTrash />
             </button>
 
             {/* complete butoon */}
             <button
                className={styles.btn}
-               onClick={() => dispatch(toggleCompleteTodo({ id: todo.id }))}>
+               onClick={() => dispatch(toggleCompleteAsyncTodo(todo))}>
                <BiCheckCircle />
             </button>
          </div>

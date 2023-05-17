@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import styles from "./addTodoForm.module.css";
 import { useState, useEffect, useRef } from "react";
-import { addTodo } from "../../features/todos/todosSlice";
+import { addAsyncTodo } from "../../features/todos/todosSlice";
 
 const AddTodoForm = () => {
    const [todoTitle, setTodoTitle] = useState("");
@@ -15,7 +15,7 @@ const AddTodoForm = () => {
 
    const submitHandler = (e) => {
       e.preventDefault();
-      dispatch(addTodo({ title: todoTitle }));
+      dispatch(addAsyncTodo({ title: todoTitle }));
       setTodoTitle("");
    };
 

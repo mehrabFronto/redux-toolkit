@@ -1,16 +1,29 @@
 import styles from "./todoList.module.css";
 import TodoItem from "../TodoItem/TodoItem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAsyncTodos } from "../../features/todos/todosSlice";
 
 const TodoList = () => {
-   const todos = useSelector((state) => state.todos);
+   const { todos, loading, error } = useSelector((state) => state.todos);
+   const dispatch = useDispatch();
+
+   useEffect(() => {
+      dispatch(getAsyncTodos());
+   }, []);
 
    const renderTodos = () => {
-      if (todos.length === 0)
+      if (loading)
          return (
             <div className={styles.Message}>
-               <p>there are no todos yet</p>
-               <span>add some todos</span>
+               <p>loading...</p>
+            </div>
+         );
+
+      if (error)
+         return (
+            <div className={styles.Message}>
+               <p>{error}</p>
             </div>
          );
 
